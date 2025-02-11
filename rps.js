@@ -59,14 +59,29 @@ function score(p1, comp) {
 humanScore = 0
 compScore = 0
 
-let p1 = prompt("choose between (Rock, Paper, Scissor:)")
-p1 = p1.toUpperCase()
-const plyr = getHumanChoice(p1)
-console.log(plyr)
+for (let i = 0; i < 5; i++){
+    let p1 = prompt("choose between (Rock, Paper, Scissor:)")
+    p1 = p1.toUpperCase()
+    const plyr = getHumanChoice(p1)
+    console.log(plyr)
 
-const comp = getComputerChoice()
-console.log(comp)
+    const comp = getComputerChoice()
+    console.log(comp)
 
+    result = score(plyr, comp)
+    if (result == 'you lose :('){
+        compScore += 1
+    }
+    else if (result == 'you win!'){
+        humanScore += 1
+    }
+    console.log(result)
+}
+if (humanScore > compScore){
+    console.log('YOU WON OVERALL!')
+}
+else{
+    console.log('you lost overall try again!')
+}
 
-console.log(score(plyr, comp))
 
